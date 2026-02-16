@@ -7,6 +7,7 @@ import (
 	"github.com/ManoVikram/AI-Meme-Generator/backend/api/routes"
 	"github.com/ManoVikram/AI-Meme-Generator/backend/api/services"
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 
@@ -15,6 +16,7 @@ import (
 
 func main() {
 	// Step 1 - Connect to the Python gRPC server
+	godotenv.Load("../../.env")
 	grpcAddress := os.Getenv("GRPC_SERVER_ADDRESS")
 	if grpcAddress == "" {
 		grpcAddress = "localhost:50051"
